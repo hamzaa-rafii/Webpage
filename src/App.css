@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+  max-height: 100%;
+  margin: 0;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+}
+
+.App.top {
+  justify-content: start;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+.transition-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 50px;
+  
+}
+
+.transition-container.top {
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.me-container {
+  text-align: center;
+}
+
+.me-container img {
+  border-radius: 50%;
+  border: 3px solid black;
+}
+
+.me {
+  width: 300px;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.me.shrink {
+  width: 100px;
+  height: auto;
+  margin-bottom: 0px;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  font-size: 1.3em;
+  color: #008dbe;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-bar.top {
+  display: flex;
+  font-size: 1.2em;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-item {
+  font-family: 'Roboto', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  cursor: pointer;
+  transition: color 0.2s ease, text-decoration 0.3s ease;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #008dbe;
+}
+
+.nav-item.active {
+  color: #A00;
+}
+
+.nav-item:hover {
+  color: #A00;
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.social-media-icons a,
+.social-media-icons div,
+.blog-icons a {
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-media-icons a:hover,
+.social-media-icons div:hover,
+.blog-icons a:hover {
+  transform: scale(1.1);
+}
+
+.social-media-icons a {
+  margin-right: 20px;
+}
+
+.social-media-icons img {
+  height: 45px;
+  width: 45px;
+}
+
+.about-page {
+  text-align: justify;
+  text-justify: inter-word;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.about-page p {
+  font-size: 1.15em;
+  line-height: 1.5;
+  color: #444444;
+}
+
+.about-page ul {
+  font-size: 1.15em;
+  line-height: 1.5;
+  color: #444444;
+}
+
+.transition-container.top + .about-page {
+  opacity: 1;
+}
+
+.inplace {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+.blog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog a {
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .app-container {
+    display: flex;
+    width: 90%; /* Adjust container width for smaller screens */
+    margin-top: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .transition-container.top {
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+  }
+
+  .transition-container {
+    margin-bottom: 0px;
+  }
+
+  .me {
+    width: 250px;
+    margin-bottom: 40px;
+  }
+
+  .me.shrink {
+    width: 80px;
+  }
+
+  .nav-bar {
+    flex-wrap: wrap; /* Allow nav items to wrap on smaller screens */
+    gap: 15px;
+    justify-content: center;
+    font-size: 1em;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-bar.top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    gap: 20px;
+  }
+
+  .nav-item {
+    font-size: 1em; /* Adjust font size for nav items */
+  }
+
+  .social-media-icons {
+    flex-wrap: wrap; /* Wrap social media icons */
+    gap: 15px; /* Add spacing between icons */
+    margin-top: 20px;
+  }
+
+  .social-media-icons a {
+    margin: 10px; /* Adjust spacing between icons */
+  }
+
+  .social-media-icons img {
+    height: 40px; /* Adjust icon size for smaller screens */
+    width: 40px;
+  }
+
+  .about-page {
+    padding: 0 10px; /* Add padding for better readability on smaller screens */
+  }
+
+  .about-page p, .about-page ul {
+    font-size: 1em; /* Adjust text size for smaller screens */
+    line-height: 1.4;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .app-container {
+    display: flex;
+    width: 90%; /* Adjust container width for smaller screens */
+    margin-top: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .transition-container.top {
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+  }
+
+  .transition-container {
+    margin-bottom: 0px;
+  }
+
+  .me {
+    width: 250px;
+  }
+
+  .me.shrink {
+    width: 80px;
+  }
+
+  .nav-bar {
+    flex-wrap: wrap; /* Allow nav items to wrap on smaller screens */
+    gap: 15px;
+    justify-content: center;
+    font-size: 1em;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-bar.top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.0em;
+    gap: 15px;
+  }
+
+  .nav-item {
+    font-size: 1em; /* Adjust font size for nav items */
+  }
+
+  .social-media-icons {
+    flex-wrap: wrap; /* Wrap social media icons */
+    gap: 15px; /* Add spacing between icons */
+    margin-top: 20px;
+  }
+
+  .social-media-icons a {
+    margin: 10px; /* Adjust spacing between icons */
+  }
+
+  .social-media-icons img {
+    height: 40px; /* Adjust icon size for smaller screens */
+    width: 40px;
+  }
+
+  .about-page {
+    padding: 0 10px; /* Add padding for better readability on smaller screens */
+  }
+
+  .about-page p, .about-page ul {
+    font-size: 1em; /* Adjust text size for smaller screens */
+    line-height: 1.4;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .app-container {
+    display: flex;
+    width: 90%; /* Adjust container width for smaller screens */
+    margin-top: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .transition-container.top {
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+  }
+
+  .transition-container {
+    margin-bottom: 0px;
+  }
+
+  .me {
+    width: 250px;
+  }
+
+  .me.shrink {
+    width: 80px;
+  }
+
+  .nav-bar {
+    flex-wrap: wrap; /* Allow nav items to wrap on smaller screens */
+    gap: 15px;
+    justify-content: center;
+    font-size: 1em;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-bar.top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    gap: 14px;
+  }
+
+  .nav-item {
+    font-size: 1em; /* Adjust font size for nav items */
+  }
+
+  .social-media-icons {
+    flex-wrap: wrap; /* Wrap social media icons */
+    gap: 15px; /* Add spacing between icons */
+    margin-top: 20px;
+  }
+
+  .social-media-icons a {
+    margin: 10px; /* Adjust spacing between icons */
+  }
+
+  .social-media-icons img {
+    height: 40px; /* Adjust icon size for smaller screens */
+    width: 40px;
+  }
+
+  .about-page {
+    padding: 0 10px; /* Add padding for better readability on smaller screens */
+  }
+
+  .about-page p, .about-page ul {
+    font-size: 1em; /* Adjust text size for smaller screens */
+    line-height: 1.4;
+  }
+}
+
+
+@media screen and (max-width: 510px) {
+  .me {
+    width: 250px; /* Further reduce image size for very small screens */
+    margin-bottom: -10px;
+  }
+
+  .me.shrink {
+    width: 70px;
+  }
+
+  .nav-bar {
+    margin-top: 50px;
+    gap: 10px; /* Reduce gap between nav items */
+  }
+
+  .nav-item {
+    font-size: 0.9em; /* Reduce nav item font size */
+  }
+
+  .social-media-icons img {
+    height: 35px; /* Reduce icon size for very small screens */
+    width: 35px;
+  }
+
+  .social-media-icons {
+    gap: 0px; /* Add spacing between icons */
+  }
+
+  .about-page p, .about-page ul {
+    font-size: 0.9em; /* Reduce text size for very small screens */
+  }
+
+  .nav-bar.top {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.80em;
+  }
+}
