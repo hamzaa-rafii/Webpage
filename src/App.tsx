@@ -50,7 +50,7 @@ function App() {
               className={`nav-item ${page === "research-experience" ? "active" : ""}`} 
               onClick={() => handleNavigation("research-experience")}
             >
-              Reasearch
+              Research
             </div>
             <div 
               className={`nav-item ${page === "teaching-experience" ? "active" : ""}`} 
