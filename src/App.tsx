@@ -75,19 +75,19 @@ function App() {
 
         {page === "home" && (
           <div className='social-media-icons'>
-          <a onClick={openCV}><img src="cv.png" alt='CV' /></a>
-          <a href="https://github.com/hamzaa-rafii" target="_blank" rel="noopener noreferrer"><img src="github.png" alt='GitHub' /></a>
-          <a href="https://www.linkedin.com/in/hamzarafi/" target="_blank" rel="noopener noreferrer"><img src="linkedin.png" alt='LinkedIn' /></a>
-          {/* <a href="https://scholar.google.com/citations?hl=en&user=Jjf8EVoAAAAJ" target="_blank" rel="noopener noreferrer"><img src="google-scholar.png" alt='Google Scholar' /></a> */}
-          {/* <a className='blog-img' href="https://huggingface.co/sameearif" target="_blank" rel="noopener noreferrer"><img src="huggingface.png" alt='Hugging Face' /></a> */}
+          <a href="#" onClick={openCV}><img src="cv.png" alt='CV' /></a>
+          <a href="https://github.com/hamzaa-rafii" target="_blank" rel="noreferrer"><img src="github.png" alt='GitHub' /></a>
+          <a href="https://www.linkedin.com/in/hamzarafi/" target="_blank" rel="noreferrer"><img src="linkedin.png" alt='LinkedIn' /></a>
+          {/* <a href="https://scholar.google.com/citations?hl=en&user=Jjf8EVoAAAAJ" target="_blank" rel="noreferrer"><img src="google-scholar.png" alt='Google Scholar' /></a> */}
+          {/* <a className='blog-img' href="https://huggingface.co/sameearif" target="_blank" rel="noreferrer"><img src="huggingface.png" alt='Hugging Face' /></a> */}
         </div>
         )}
 
         {page === "about" && (
           <div className="about-page">
-            <p>I am a PhD student in Electrical & Computer Engineering at <a className='inplace' href="" target="_blank">Rutgers University</a>, working under <a className='inplace' href="https://www.inspirelab.us/people/" target="_blank">Prof. Waheed Bajwa</a> in the INSPIRE Lab. My research lies at the intersection of machine learning, optimization, and statistical decision theory.</p>             
+            <p>I am a PhD student in Electrical & Computer Engineering at <a className='inplace' href="" target="_blank" rel="noreferrer">Rutgers University</a>, working under <a className='inplace' href="https://www.inspirelab.us/people/" target="_blank" rel="noreferrer">Prof. Waheed Bajwa</a> in the INSPIRE Lab. My research lies at the intersection of machine learning, optimization, and statistical decision theory.</p>             
 
-            <p>I completed my Bachelor of Science in Electrical Engineering at <a className='inplace' href="https://www.lums.edu.pk/" target="_blank">Lahore University of Management Sciences</a> (LUMS), where I worked as a Research Assistant at the <a className='inplace' href="https://city.lums.edu.pk/" target="_blank">Center for Intelligent Systems & Networks Research</a>  (CITY) under <a className='inplace' href="https://city.lums.edu.pk/tahir/" target="_blank">Dr. Muhammad Tahir</a> & <a className='inplace' href="https://city.lums.edu.pk/momin-ayub/" target="_blank">Dr. Momin Uppal</a> . During this time, I gained experience in deep learning, data analytics, and AI technologies, which laid the foundation for my current research. My academic journey has been driven by a strong interest in combining mathematical rigor and real-world impact, preparing me to pursue advanced studies and research in machine learning and optimization.</p>
+            <p>I completed my Bachelor of Science in Electrical Engineering at <a className='inplace' href="https://www.lums.edu.pk/" target="_blank" rel="noreferrer">Lahore University of Management Sciences</a> (LUMS), where I worked as a Research Assistant at the <a className='inplace' href="https://city.lums.edu.pk/" target="_blank" rel="noreferrer">Center for Intelligent Systems & Networks Research</a>  (CITY) under <a className='inplace' href="https://city.lums.edu.pk/tahir/" target="_blank" rel="noreferrer">Dr. Muhammad Tahir</a> & <a className='inplace' href="https://city.lums.edu.pk/momin-ayub/" target="_blank" rel="noreferrer">Dr. Momin Uppal</a> . During this time, I gained experience in deep learning, data analytics, and AI technologies, which laid the foundation for my current research. My academic journey has been driven by a strong interest in combining mathematical rigor and real-world impact, preparing me to pursue advanced studies and research in machine learning and optimization.</p>
         
             <p>Outside of research, I enjoy playing cricket and volleyball, as well as watching TV shows and anime. I am also an avid video game enthusiast, with a particular interest in story-driven and immersive titles. These hobbies allow me to unwind, stay active, and bring a sense of creativity and balance to my academic life.</p>
           </div>
