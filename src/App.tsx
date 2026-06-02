@@ -174,7 +174,7 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const [page, setPage] = useState("home");
-  const [theme, setTheme] = useState<string>(() => localStorage.getItem('theme') || 'dark');
+  const [theme, setTheme] = useState<string>(() => localStorage.getItem('theme') || 'light');
 
   const tagline = useTypewriter([
     'robust optimization.',

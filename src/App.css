@@ -50,6 +50,7 @@ body {
   flex-direction: column;
   font-family: 'Roboto', sans-serif;
   transition: background-color 0.4s ease;
+  overflow-x: hidden;
 }
 
 .App.top {
@@ -650,6 +651,19 @@ hr {
 
   .hero-viz {
     max-width: 100%;
+    height: auto;
+  }
+
+  .home-news ul {
+    padding: 0 4px;
+  }
+
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .card {
+    padding: 12px 14px;
   }
 
   .corner {
