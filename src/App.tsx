@@ -271,7 +271,7 @@ function App() {
             <p className="home-tagline">
               On <span className="kw">{tagline}</span><span className="caret">|</span>
             </p>
-            <a className="home-email" href="mailto:h.rafi@rutgers.edu">h.rafi@rutgers.edu</a>
+            <a className="home-email" href="mailto:hamza.rafi@rutgers.edu">hamza.rafi@rutgers.edu</a>
             <HeroViz />
           </div>
         )}
