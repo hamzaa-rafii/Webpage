@@ -230,8 +230,8 @@ function HeroViz() {
   return (
     <div className="hero-viz-wrap">
       <canvas ref={ref} className="hero-viz" aria-label="Interactive optimization visualization" />
-      <p className="viz-hint viz-hint-desktop">hover to redirect · click to toggle view</p>
-      <p className="viz-hint viz-hint-mobile">tap to redirect · double-tap to toggle view</p>
+      <p className="viz-hint viz-hint-desktop">hover to place initialization point · click for loss curve</p>
+      <p className="viz-hint viz-hint-mobile">tap to place initialization point · double-tap for loss curve</p>
     </div>
   );
 }
