@@ -134,9 +134,14 @@ function HeroViz() {
     canvas.addEventListener('touchstart', onTouch, { passive: false });
 
     const N = 80;
+    // Adam-like curve: fast initial drop with a slower polynomial tail,
+    // plus pseudo-random mini-batch noise that shrinks as training stabilises.
+    const hash = (n: number) => { const x = Math.sin(n * 9301.7 + 49297.3) * 43758.5; return x - Math.floor(x); };
     const lossY = (i: number) => {
       const t = i / N;
-      return Math.max(0.04, 0.88 * Math.exp(-4 * t) + 0.06 + Math.sin(i * 13.7) * 0.025 + Math.sin(i * 7.3) * 0.015);
+      const base = 0.07 + 0.88 * Math.exp(-7 * t) / (1 + 3 * t);
+      const noise = (hash(i) - 0.5) * 0.04 * Math.exp(-3 * t);
+      return Math.max(0.05, base + noise);
     };
     let lossPts = 0, lossHold = 0;
 
