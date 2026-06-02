@@ -174,7 +174,7 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const [page, setPage] = useState("home");
-  const [theme, setTheme] = useState<string>(() => localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState<string>(() => localStorage.getItem('theme-pref') || 'light');
 
   const tagline = useTypewriter([
     'robust optimization.',
@@ -189,10 +189,14 @@ function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
+  const toggleTheme = () =>
+    setTheme((t) => {
+      const next = t === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme-pref', next);
+      return next;
+    });
 
   const openCV = () => {
     window.open('CV.pdf', '_blank');
