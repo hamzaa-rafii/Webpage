@@ -297,6 +297,13 @@ body {
   margin: 6px 0 0;
 }
 
+.viz-hint-mobile { display: none; }
+
+@media (hover: none) {
+  .viz-hint-desktop { display: none; }
+  .viz-hint-mobile  { display: block; }
+}
+
 /* ── Home tags ─────────────────────────────────────────────────────── */
 .home-tags {
   display: flex;

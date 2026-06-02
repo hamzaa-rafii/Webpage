@@ -74,7 +74,7 @@ function CursorTrail() {
 function HeroViz() {
   const ref = useRef<HTMLCanvasElement>(null);
   const modeRef = useRef<'descent' | 'loss'>('descent');
-  const toggle = () => { modeRef.current = modeRef.current === 'descent' ? 'loss' : 'descent'; };
+  const modeToggle = () => { modeRef.current = modeRef.current === 'descent' ? 'loss' : 'descent'; };
 
   useEffect(() => {
     const canvas = ref.current;
@@ -100,12 +100,38 @@ function HeroViz() {
     const launchFrom = (x: number, y: number) => {
       pt = { x, y }; vel = { x: 0, y: 0 }; path = [{ ...pt }]; holding = 0;
     };
+    // Desktop: mousemove redirects, click toggles
     const onMove = (e: MouseEvent) => {
       if (modeRef.current !== 'descent') return;
       const rect = canvas.getBoundingClientRect();
       launchFrom(e.clientX - rect.left, e.clientY - rect.top);
     };
+    const onClick = () => { if (!('ontouchstart' in window)) modeToggle(); };
     canvas.addEventListener('mousemove', onMove);
+    canvas.addEventListener('click', onClick);
+
+    // Mobile: single tap → launch from point, double tap → toggle graph
+    let lastTap = 0;
+    let tapTimer: ReturnType<typeof setTimeout> | null = null;
+    let pendingX = 0, pendingY = 0;
+
+    const onTouch = (e: TouchEvent) => {
+      e.preventDefault();
+      const touch = e.touches[0] || e.changedTouches[0];
+      const rect = canvas.getBoundingClientRect();
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      const now = Date.now();
+      if (now - lastTap < 300) {
+        if (tapTimer) { clearTimeout(tapTimer); tapTimer = null; }
+        modeToggle();
+      } else {
+        pendingX = x; pendingY = y;
+        tapTimer = setTimeout(() => { launchFrom(pendingX, pendingY); tapTimer = null; }, 300);
+      }
+      lastTap = now;
+    };
+    canvas.addEventListener('touchstart', onTouch, { passive: false });
 
     const N = 80;
     const lossY = (i: number) => {
@@ -192,13 +218,20 @@ function HeroViz() {
     };
 
     tick();
-    return () => { cancelAnimationFrame(raf); canvas.removeEventListener('mousemove', onMove); };
+    return () => {
+      cancelAnimationFrame(raf);
+      canvas.removeEventListener('mousemove', onMove);
+      canvas.removeEventListener('click', onClick);
+      canvas.removeEventListener('touchstart', onTouch);
+      if (tapTimer) clearTimeout(tapTimer);
+    };
   }, []);
 
   return (
     <div className="hero-viz-wrap">
-      <canvas ref={ref} className="hero-viz" onClick={toggle} aria-label="Interactive optimization visualization" />
-      <p className="viz-hint">hover to redirect · click to toggle view</p>
+      <canvas ref={ref} className="hero-viz" aria-label="Interactive optimization visualization" />
+      <p className="viz-hint viz-hint-desktop">hover to redirect · click to toggle view</p>
+      <p className="viz-hint viz-hint-mobile">tap to redirect · double-tap to toggle view</p>
     </div>
   );
 }
