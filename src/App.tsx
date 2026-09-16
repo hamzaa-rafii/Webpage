@@ -284,6 +284,26 @@ function Card({ title, desc }: { title: string; desc: string }) {
   );
 }
 
+/* Page-view counter via Abacus (no account, no script injection — plain JSON fetch). Hides itself on failure. */
+function ViewCounter() {
+  const [count, setCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetch('https://abacus.jasoncameron.dev/hit/hamzaa-rafii-portfolio/views')
+      .then((res) => res.json())
+      .then((data) => setCount(data.value))
+      .catch(() => {});
+  }, []);
+
+  if (count === null) return null;
+
+  return (
+    <div className="view-counter" aria-hidden="true">
+      {count.toLocaleString()} views
+    </div>
+  );
+}
+
 function SunIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -472,6 +492,10 @@ function App() {
             </div>
           </div>
         )}
+
+        <footer className="site-footer">
+          <ViewCounter />
+        </footer>
       </div>
     </div>
   );

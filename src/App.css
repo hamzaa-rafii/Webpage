@@ -154,6 +154,22 @@ body {
   border-color: var(--accent);
 }
 
+/* ── Footer / view counter ─────────────────────────────────────────── */
+.site-footer {
+  width: 100%;
+  margin-top: 60px;
+  padding: 24px 0 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.view-counter {
+  font-size: 0.75em;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  opacity: 0.65;
+}
+
 /* ── Nav ───────────────────────────────────────────────────────────── */
 .nav-bar {
   display: flex;
