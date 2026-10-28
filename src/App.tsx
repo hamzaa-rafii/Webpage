@@ -443,7 +443,7 @@ function App() {
           <div className="home-news">
             <p className="news-title">Recent</p>
             <ul>
-              <li><span className="news-date">2025</span> Developing robust, momentum-based optimization methods (manuscript in preparation).</li>
+              <li><span className="news-date">2026</span> New preprint on arXiv: <a className="inplace" href="https://arxiv.org/abs/2610.37444" target="_blank" rel="noreferrer">DREAM: Delay-Resistant Acceleration with Momentum</a>.</li>
               <li><span className="news-date">2024</span> Teaching Assistant for Machine Learning &amp; Programming Methodology at Rutgers.</li>
               <li><span className="news-date">2024</span> Joined the INSPIRE Lab to work on uncertainty-aware, reliable ML systems.</li>
             </ul>
