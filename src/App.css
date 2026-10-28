@@ -589,47 +589,54 @@ hr {
   to { width: 420px; height: 420px; opacity: 0; }
 }
 
-/* ── Publications loading state ────────────────────────────────────── */
-.publications-page {
-  text-align: center;
+/* ── Publications ──────────────────────────────────────────────────── */
+.publications-page { text-align: left; }
+
+.pub-entry {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  transition: box-shadow 0.25s ease;
 }
 
-.pub-loading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 48px 0 60px;
-  gap: 18px;
-}
+.pub-entry:hover { box-shadow: 0 6px 18px var(--shadow); }
 
-.pub-spinner {
-  width: 64px;
-  height: 64px;
-  border: 2.5px solid var(--border);
-  border-top-color: var(--accent);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
+.pub-entry p { margin: 0; line-height: 1.5; }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.pub-loading .pub-soon {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 4.5rem;
-  font-weight: 400;
+.about-page .pub-title {
+  font-size: 1rem;
+  font-weight: 500;
   color: var(--text-primary);
-  margin: 0;
-  line-height: 1.1;
+  margin-bottom: 6px;
 }
 
-.pub-loading .pub-sub {
-  font-size: 0.92rem;
-  font-weight: 300;
-  color: var(--text-secondary);
-  opacity: 0.6;
-  margin: 0;
+.about-page .pub-authors {
+  font-size: 0.9rem;
+  color: var(--text-body);
+}
+
+.pub-me {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.about-page .pub-venue {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-body);
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+.about-page .pub-links {
+  font-size: 0.85rem;
+  margin-top: 8px;
+  display: flex;
+  gap: 12px;
 }
 
 /* ── Shared keyframes ──────────────────────────────────────────────── */

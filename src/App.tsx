@@ -284,6 +284,34 @@ function Card({ title, desc }: { title: string; desc: string }) {
   );
 }
 
+/* One publication entry; my own name in the author list is highlighted. */
+function Publication({ title, authors, venue, links }: {
+  title: string;
+  authors: string[];
+  venue: string;
+  links: { label: string; href: string }[];
+}) {
+  return (
+    <div className="pub-entry">
+      <p className="pub-title">{title}</p>
+      <p className="pub-authors">
+        {authors.map((a, i) => (
+          <span key={a}>
+            {a === 'M. Hamza Rafi' ? <span className="pub-me">{a}</span> : a}
+            {i < authors.length - 1 && ', '}
+          </span>
+        ))}
+      </p>
+      <p className="pub-venue">{venue}</p>
+      <p className="pub-links">
+        {links.map((l) => (
+          <a key={l.label} className="inplace" href={l.href} target="_blank" rel="noreferrer">[{l.label}]</a>
+        ))}
+      </p>
+    </div>
+  );
+}
+
 /* Page-view counter via Abacus (no account, no script injection — plain JSON fetch). Hides itself on failure. */
 function ViewCounter() {
   const [count, setCount] = useState<number | null>(null);
@@ -485,11 +513,17 @@ function App() {
 
         {page === 'publications' && (
           <div className="about-page publications-page">
-            <div className="pub-loading">
-              <div className="pub-spinner" />
-              <p className="pub-soon">Coming Soon</p>
-              <p className="pub-sub">Check back for preprints and publications.</p>
-            </div>
+            <p className="section-heading">Preprints</p>
+            <hr />
+            <Publication
+              title="DREAM: Delay-Resistant Acceleration with Momentum"
+              authors={['Mert Gürbüzbalaban', 'M. Hamza Rafi', 'Necdet Serhat Aybat', 'Waheed U. Bajwa']}
+              venue="arXiv preprint arXiv:2610.37444, 2026"
+              links={[
+                { label: 'arXiv', href: 'https://arxiv.org/abs/2610.37444' },
+                { label: 'PDF',   href: 'https://arxiv.org/pdf/2610.37444' },
+              ]}
+            />
           </div>
         )}
 
