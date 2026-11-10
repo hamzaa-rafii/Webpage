@@ -632,6 +632,13 @@ hr {
   margin-top: 2px;
 }
 
+.about-page .talk-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: -4px;
+  margin-bottom: 4px;
+}
+
 .about-page .pub-links {
   font-size: 0.85rem;
   margin-top: 8px;

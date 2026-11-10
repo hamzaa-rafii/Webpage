@@ -312,6 +312,29 @@ function Publication({ title, authors, venue, links }: {
   );
 }
 
+/* One talk entry: title, optional subtitle/co-author note, event line, and links (slides, paper, ...). */
+function Talk({ title, subtitle, note, event, links }: {
+  title: string;
+  subtitle?: string;
+  note?: string;
+  event: string;
+  links: { label: string; href: string }[];
+}) {
+  return (
+    <div className="pub-entry">
+      <p className="pub-title">{title}</p>
+      {subtitle && <p className="talk-subtitle">{subtitle}</p>}
+      {note && <p className="pub-authors">{note}</p>}
+      <p className="pub-venue">{event}</p>
+      <p className="pub-links">
+        {links.map((l) => (
+          <a key={l.label} className="inplace" href={l.href} target="_blank" rel="noreferrer">[{l.label}]</a>
+        ))}
+      </p>
+    </div>
+  );
+}
+
 /* Page-view counter via Abacus (no account, no script injection — plain JSON fetch). Hides itself on failure. */
 function ViewCounter() {
   const [count, setCount] = useState<number | null>(null);
@@ -407,6 +430,7 @@ function App() {
             <div className={`nav-item ${page === 'research-experience' ? 'active' : ''}`} onClick={() => handleNavigation('research-experience')}>Research</div>
             <div className={`nav-item ${page === 'teaching-experience' ? 'active' : ''}`} onClick={() => handleNavigation('teaching-experience')}>Teaching</div>
             <div className={`nav-item ${page === 'publications'        ? 'active' : ''}`} onClick={() => handleNavigation('publications')}>Publications</div>
+            <div className={`nav-item ${page === 'talks'               ? 'active' : ''}`} onClick={() => handleNavigation('talks')}>Talks</div>
           </div>
         </div>
 
@@ -443,6 +467,7 @@ function App() {
           <div className="home-news">
             <p className="news-title">Recent</p>
             <ul>
+              <li><span className="news-date">2026</span> Gave a technical presentation on DREAM at the INFORMS Annual Meeting in San Francisco (<a className="inplace" href="slides/INFORMS2026_DREAM.pdf" target="_blank" rel="noreferrer">slides</a>).</li>
               <li><span className="news-date">2026</span> New preprint on arXiv: <a className="inplace" href="https://arxiv.org/abs/2610.37444" target="_blank" rel="noreferrer">DREAM: Delay-Resistant Acceleration with Momentum</a>.</li>
               <li><span className="news-date">2024</span> Teaching Assistant for Machine Learning &amp; Programming Methodology at Rutgers.</li>
               <li><span className="news-date">2024</span> Joined the INSPIRE Lab to work on uncertainty-aware, reliable ML systems.</li>
@@ -527,6 +552,23 @@ function App() {
           </div>
         )}
 
+        {page === 'talks' && (
+          <div className="about-page publications-page">
+            <p className="section-heading">Conference Talks</p>
+            <hr />
+            <Talk
+              title="DREAM: Delay-Resistant Acceleration with Momentum"
+              subtitle="Optimal Acceleration under Delayed Gradients"
+              note="Joint work with Mert Gürbüzbalaban, Necdet Serhat Aybat, and Waheed U. Bajwa"
+              event="INFORMS Annual Meeting · San Francisco, CA · November 2026"
+              links={[
+                { label: 'Slides', href: 'slides/INFORMS2026_DREAM.pdf' },
+                { label: 'Paper',  href: 'https://arxiv.org/abs/2610.37444' },
+              ]}
+            />
+          </div>
+        )}
+
         <footer className="site-footer">
           <ViewCounter />
         </footer>
@@ -544,6 +586,7 @@ function AppWrapper() {
         <Route path="/research-experience"  element={<App />} />
         <Route path="/teaching-experience"  element={<App />} />
         <Route path="/publications"         element={<App />} />
+        <Route path="/talks"                element={<App />} />
         <Route path="/grants"               element={<App />} />
       </Routes>
     </Router>
