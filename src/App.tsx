@@ -450,6 +450,7 @@ function App() {
           <button onClick={openCV} style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
             <img src="cv.png" alt="CV" />
           </button>
+          <a href="https://scholar.google.com/citations?user=Lo9A4mYAAAAJ&hl=en" target="_blank" rel="noreferrer"><img src="google-scholar.png" alt="Google Scholar" /></a>
           <a href="https://github.com/hamzaa-rafii" target="_blank" rel="noreferrer"><img src="github.png" alt="GitHub" /></a>
           <a href="https://www.linkedin.com/in/hamzarafi/" target="_blank" rel="noreferrer"><img src="linkedin.png" alt="LinkedIn" /></a>
         </div>
